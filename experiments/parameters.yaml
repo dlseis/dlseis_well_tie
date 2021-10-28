@@ -1,0 +1,73 @@
+network:
+    max_epochs: 280
+    learning_rate: 0.0025
+    lr_decay_rate: .5
+    lr_decay_every_n_epoch: 80
+    wavelet_loss_type: 'mae'
+    seismic_loss_type: 'mae'
+    beta: 0.0
+    alpha_init: 0.05
+    alpha_max: 0.4
+    alpha_epoch_rate: 20
+    alpha_scaling: 1.1
+    batch_size: 512
+    weight_decay: 0.003
+    min_delta_perc: 1
+    patience: 20
+    network_kwargs: null
+    tensorboard: False
+
+
+
+synthetic_dataset:
+    num_training_samples: 300000
+    num_validation_samples: 1024
+    dt: 0.002
+    h5_file: null
+    h5_group_training: null
+    h5_group_validation: null
+    from_scratch: False
+    wavelet:
+        wavelet_size: 148
+        ricker:
+            use: False
+            fc_min: 14
+            fc_max: 40
+        butterworth:
+            use: True
+            order_min: 5
+            order_max: 12
+            low_min: 2
+            low_max: 7
+            high_min: 30
+            high_max: 58
+        ormby:
+            use: True
+            f0_min: 2
+            f0_max: 7
+            f1_min: 5
+            f1_max: 15
+            f2_min: 20
+            f2_max: 60
+            f3_min: 30
+            f3_max: 80
+    reflectivity:
+        reflectivity_size: 232
+        sparsity_rate_min: 0.5
+        sparsity_rate_max: 0.95
+        simplex:
+            variation_scale_min: 10
+            variation_scale_max: 1000
+        weak:
+            max_amplitude_min: 0.3
+            max_amplitude_max: 0.6
+    noise:
+        scale_min: 0.033
+        scale_max: 0.1
+
+
+
+
+
+
+

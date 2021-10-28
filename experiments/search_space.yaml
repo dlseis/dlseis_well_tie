@@ -1,0 +1,75 @@
+meta:
+    num_sampling: 60
+    num_training_samples: 2048
+
+p01:
+    name: "learning_rate"
+    type: "range"
+    value_type: "float"
+    bounds: [0.00001, 0.01]
+    log_scale: False
+
+p02:
+    name: "batch_size"
+    type: "fixed"
+    value_type: "int"
+    value: 512
+
+p03:
+    name: "max_epochs"
+    type: "range"
+    value_type: "int"
+    bounds: [280, 350]
+
+p04:
+    name: "alpha_max"
+    type: "range"
+    value_type: "float"
+    bounds: [0.05, 0.9]
+
+#p03:
+#    name: "beta"
+#    type: "range"
+#    value_type: "float"
+#    bounds: [0.0001, 0.9999]
+
+p05:
+    name: "weight_decay"
+    type: "range"
+    bounds: [0.00001, 0.01]
+    value_type: "float"
+
+p06:
+    name: "wavelet_loss_type"
+    type: "choice"
+    value_type: "str"
+    values: ["mse", "mae"]
+
+#p06:
+#    name: "seismic_loss_type"
+#    type: "choice"
+#    value_type: "str"
+#    values: ["mse", "mae"]
+
+p07:
+    name: "kernel_size"
+    type: "choice"
+    value_type: "int"
+    values: [3, 5]
+
+p08:
+    name: "downsampling_factor"
+    type: "fixed"
+    value_type: "int"
+    value: 3
+
+p09:
+    name: "dropout_rate"
+    type: "range"
+    value_type: "float"
+    bounds: [0.1, 0.4]
+
+
+
+
+

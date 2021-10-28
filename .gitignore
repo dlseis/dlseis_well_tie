@@ -1,0 +1,34 @@
+# Byte-compiled / optimized 
+__pycache__
+
+
+# jupyter notebooks checkpoints
+*.ipynb_checkpoints
+
+#stuff
+*nogit*
+
+# papers and docs
+papers/
+
+# real data
+data/
+!data/tutorial/*
+
+# package setup utils
+wtie.egg-info/
+tmp/
+documentation/
+
+# spyder ide
+.spyproject/
+
+# results folder content
+experiments/results/*
+!experiments/results/uncompress_archive.sh
+!experiments/results/compress_dir.sh
+
+experiments/optim/*
+!experiments/optim/uncompress_archive.sh
+!experiments/optim/compress_dir.sh
+

@@ -1,0 +1,35 @@
+name: wtie
+channels:
+  - defaults
+  - conda-forge
+  - pytorch
+dependencies:
+  - defaults::python=3.7.9
+  - defaults::jupyter
+  - defaults::ipython
+  - defaults::multimethod
+  - pytorch::pytorch
+  - pytorch::torchvision
+  - defaults::cudatoolkit=10.1
+  - defaults::tensorboard
+  - defaults::numpy
+  - defaults::pandas
+  - defaults::matplotlib
+  - defaults::scipy
+  - defaults::scikit-image
+  - defaults::scikit-learn
+  - defaults::h5py
+  - defaults::numba
+  - defaults::pyyaml
+  - defaults::pathlib
+  - defaults::pytest
+  - defaults::pdoc3
+  - defaults::pylint
+  - defaults::tqdm
+  - pip
+  - pip:
+      - segyio
+      - lasio
+      - noise
+      - ax-platform
+      - dtaidistance
