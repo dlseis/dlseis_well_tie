@@ -4,13 +4,12 @@ channels:
   - conda-forge
   - pytorch
 dependencies:
-  - defaults::python=3.7.9
+  - defaults::python=3.9
   - defaults::jupyter
   - defaults::ipython
   - defaults::multimethod
   - pytorch::pytorch
-  - pytorch::torchvision
-  - defaults::cudatoolkit=10.1
+  - defaults::cudatoolkit=10.2
   - defaults::tensorboard
   - defaults::numpy
   - defaults::pandas

@@ -4,14 +4,15 @@
 from typing import List, Callable, Union, Any, TypeVar, Tuple, Iterable, Dict
 from types import FunctionType
 
+import torch
 import numpy as np
-import torch.tensor
 import pathlib
+
 # from torch import tensor as Tensor
 
-T = TypeVar('T')
-#Tensor = TypeVar('torch.tensor')
-#Module = TypeVar('torch.nn.modules.module.Module')
+T = TypeVar("T")
+# Tensor = TypeVar('torch.tensor')
+# Module = TypeVar('torch.nn.modules.module.Module')
 
 Tensor = torch.Tensor
 
