@@ -66,7 +66,7 @@ conda activate wtie
 
 ### Tutorial
 A series of [**notebooks**](./notebooks) demonstrates the use of the library to perform an automatic well tie. The weights of a pretrained network as well as data coming from the open [Volve](https://www.equinor.com/en/what-we-do/digitalisation-in-our-dna/volve-field-data-village-download.html) and [Poseidon](https://terranubis.com/datainfo/NW-Shelf-Australia-Poseidon-3D
-) datasets are provided in the [data](./data/tutorial) folder.
+) datasets are provided in the [data](./data/tutorial) folder. **NOTE that both datasets come with their own license**.
 
 Explanations about how to train your own neural network are given [here](./wtie/learning/readme.md).
 
