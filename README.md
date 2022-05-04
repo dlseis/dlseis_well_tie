@@ -71,5 +71,4 @@ A series of [**notebooks**](./notebooks) demonstrates the use of the library to 
 Explanations about how to train your own neural network are given [here](./wtie/learning/readme.md).
 
 ## Publications
-A publication titled "Partial Automation of the Seismic to Well Tie with Deep Learning and Bayesian Optimization" is under review. In the mean time, if this package is useful in your work, you may cite the following:
-- Valentin Tschannen. Deep Learning for Seismic Data Processing and Interpretation. Ph.D. Thesis. École normale supérieure, Université PSL, 2020. [link](https://hal.archives-ouvertes.fr/tel-02962268)
+A publication titled "Partial automation of the seismic to well tie with deep learning and Bayesian optimization" is available in open access in the journal Computers and Geosciences. It can be accessed via https://doi.org/10.1016/j.cageo.2022.105120 . You are free to download and modify the source code for your work. If you find this work useful, don't forget to cite our publication. 
