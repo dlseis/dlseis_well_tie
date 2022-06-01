@@ -4,7 +4,7 @@ channels:
   - conda-forge
   - pytorch
 dependencies:
-  - defaults::python=3.9
+  - defaults::python=3.7.9
   - defaults::jupyter
   - defaults::ipython
   - defaults::multimethod
@@ -30,5 +30,6 @@ dependencies:
       - segyio
       - lasio
       - noise
-      - ax-platform
+      - ax-platform==0.1.20
       - dtaidistance
+
