@@ -8,8 +8,8 @@ dependencies:
   - defaults::jupyter
   - defaults::ipython
   - defaults::multimethod
-  - pytorch::pytorch
   - defaults::cudatoolkit=10.2
+  - pytorch::pytorch=*=*cuda10.2*
   - defaults::tensorboard
   - defaults::numpy
   - defaults::pandas
