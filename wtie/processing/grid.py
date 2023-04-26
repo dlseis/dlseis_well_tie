@@ -153,6 +153,10 @@ class BaseTrace(BaseObject):
     @property
     def basis(self) -> np.ndarray:
         return self.series.index.values
+    
+    @basis.setter
+    def basis(self, new_value):
+        self.series.set_axis(new_value,inplace=True)
 
     def __len__(self):
         return self.size
@@ -317,7 +321,7 @@ class BasePrestackTrace:
 
         # Short cuts
         self.basis_type = traces[0].basis_type
-        self.basis = traces[0].basis
+        self._basis = traces[0].basis
         self.sampling_rate = traces[0].sampling_rate
         self.is_md = traces[0].is_md
         self.is_twt = traces[0].is_twt
@@ -371,7 +375,28 @@ class BasePrestackTrace:
             values[i, :] = ref.values
 
         return values
-
+    
+    @property
+    def basis(self) -> np.ndarray:
+        return self._basis
+    
+    @basis.setter
+    def basis(self, new_basis):
+        self._basis = new_basis
+        for trace in self.traces:
+            trace.basis = new_basis
+            
+    @property
+    def basis(self) -> np.ndarray:
+        return self._basis
+    
+    @basis.setter
+    def basis(self, new_basis):
+        self._basis = new_basis
+        for trace in self.traces:
+            trace.basis = new_basis            
+    
+            
     @staticmethod
     def decimate_angles(trace: 'BasePrestackTrace',
                         start_angle: int,
@@ -712,7 +737,7 @@ class TimeDepthTable:
                            bounds_error=False, fill_value="extrapolate")
 
         new_twt = interp(new_tvd)
-
+        
         return TimeDepthTable(new_twt, new_tvd)
 
     def __str__(self):
@@ -770,6 +795,7 @@ class TimeDepthTable:
         """If checkshot table is available, one can compute the
         t_start for the alternative table obtained by integrating the sonic log.
         """
+        
         # md to tvdss
         assert Vp.is_md
         Vp = _convert_log_from_md_to_tvdss(Vp, wp)
@@ -795,6 +821,7 @@ class TimeDepthTable:
         """If checkshot table is available, one can compute the
         tvdss_start for the alternative table obtained by integrating the sonic log.
         """
+        
         # md to tvdss
         assert Vp.is_twt
 
@@ -1001,7 +1028,13 @@ def get_matching_traces(trace1: Union[BaseTrace, BasePrestackTrace],
         raise NotImplementedError
 
     #assert trace1_match.size == trace2_match.size
+    #print(trace1_match.basis)
+    #print(trace2_match.basis)
+    assert np.allclose(trace1_match.basis, trace2_match.basis, rtol=1e-2)
+    #DOUBLECHECK IF IT MAKES SENSE IN ALL CASES
+    trace2_match.basis = trace1_match.basis
     assert np.allclose(trace1_match.basis, trace2_match.basis, rtol=1e-3)
+    
     return trace1_match, trace2_match
 
 
@@ -1216,10 +1249,9 @@ def convert_log_from_md_to_twt(log: Log,
                                         interpolation=interpolation)
     assert log.is_tvdss
     start_z = log.basis[0]  # tvd
-
+    
     # interpolate t-d table at dz
     table_at_dz = table.depth_interpolation(dz)
-
     #max_table_tvdss = table_at_dz.tvdss[-1]
 
     # find equivalent twt
@@ -1237,6 +1269,7 @@ def convert_log_from_md_to_twt(log: Log,
 
     # interpolate to regular dt
     linear_twt = np.arange(log_twt[0], log_twt[-1]+dt, dt)
+    
     interp = _interp1d(log_twt, log.values,
                        bounds_error=False, fill_value=log.values[-1],
                        kind=interpolation)
